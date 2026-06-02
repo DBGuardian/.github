@@ -7,7 +7,7 @@
   ![GitHub stars](https://img.shields.io/github/stars/DBGuardian/DBGuardian-Spring-Boot-Starter?style=flat-square)
   ![GitHub forks](https://img.shields.io/github/forks/DBGuardian/DBGuardian-Spring-Boot-Starter?style=flat-square)
   ![GitHub issues](https://img.shields.io/github/issues/DBGuardian/DBGuardian-Spring-Boot-Starter?style=flat-square)
-  ![GitHub license](https://img.shields.io/github/license/DBGuardian/DBGuardian-Spring-Boot-Starter?style=flat-square)
+  ![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)
 </div>
 
 DBGuardian 是一套面向 Spring Boot 应用的数据库高可用解决方案，专注于读写分离、自动故障转移、分布式协调与降级启动能力，帮助业务在数据库异常时保持更高的可用性与连续性。
