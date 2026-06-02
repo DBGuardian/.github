@@ -30,6 +30,32 @@ DBGuardian 目前提供两个 Starter 版本，分别面向 Spring Boot 2 与 Sp
 - **原主库恢复**：支持原主库恢复后自动作为从库继续追赶数据
 - **降级启动**：数据库暂时不可用时，允许应用以降级模式启动
 
+## 当前支持矩阵
+
+### ORM 支持
+
+- **MyBatis-Plus**：已支持
+- **MyBatis**：已支持
+
+### 已验证版本组合
+
+参考 `DBGuardian-doc/doc/测试项目规划.md`，当前已完成的组合如下：
+
+- `Java 8 + Spring Boot 2.7 + MyBatis-Plus`
+- `Java 11 + Spring Boot 2.7 + MyBatis-Plus`
+- `Java 17 + Spring Boot 3.0 + MyBatis-Plus`
+- `Java 17 + Spring Boot 3.1 + MyBatis-Plus`
+- `Java 17 + Spring Boot 3.2 + MyBatis-Plus`
+- `Java 8 + Spring Boot 2.7 + MyBatis`
+- `Java 17 + Spring Boot 3.2 + MyBatis`
+- `Java 21 + Spring Boot 3.3 + MyBatis-Plus`
+
+### 版本参考
+
+- **Spring Boot 2.7.x**：对应 `DBGuardian-Spring-Boot-Starter`
+- **Spring Boot 3.0.x**：对应 `DBGuardian-Spring-Boot3-Starter`
+- 其他 Spring Boot 3.x 组合以测试项目规划中的矩阵为准
+
 ## 适用场景
 
 - 需要提升数据库可用性的 Spring Boot 项目
@@ -138,7 +164,8 @@ public class UserService {
 
 ## 版本与依赖要求
 
-- Spring Boot 2.7.x 或 Spring Boot 3.0.x
+- Spring Boot 2.7.x 或 Spring Boot 3.0.x / 3.1.x / 3.2.x / 3.3.x
+- Java 8 / 11 / 17 / 21，按测试矩阵选择对应版本
 - MySQL 5.7+ / 8.0+
 - Redis 6.x+（可选，用于分布式协调）
 
