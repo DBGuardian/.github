@@ -89,6 +89,45 @@ DBGuardian 目前提供两个 Starter 版本，分别面向 Spring Boot 2 与 Sp
 
 ### 基础配置
 
+#### Spring Boot 2.x
+
+```yaml
+spring:
+  application:
+    name: your-app-name
+
+  main:
+    allow-circular-references: true
+
+  datasource:
+    allow-degraded-startup: true
+
+    master:
+      url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+      username: root
+      password: password
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+    slave:
+      url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+      username: root
+      password: password
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+    replication:
+      master-host: localhost
+      master-port: 3306
+      master-user: repl
+      master-password: repl_password
+      auto-reconnect: true
+
+  redis:
+    host: localhost
+    port: 6379
+```
+
+#### Spring Boot 3.x
+
 ```yaml
 spring:
   application:
