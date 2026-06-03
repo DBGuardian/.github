@@ -217,6 +217,18 @@ public class UserService {
 
 欢迎通过 Issue、PR 或 Star 参与项目建设，也欢迎分享使用反馈和改进建议。
 
+## 定制化服务
+
+如果你的项目需要以下定制化需求，欢迎联系我们：
+- 专用数据库版本支持（如 PostgreSQL、Oracle、SQL Server 等）
+- 更多 ORM 框架集成（如 JPA、Hibernate、JdbcTemplate 等）
+- 多主库、多从库等复杂架构支持
+- 其他定制化功能开发
+
+联系方式：
+- QQ：664235822
+- 邮箱：664235822@qq.com
+
 ## License
 
 MIT
