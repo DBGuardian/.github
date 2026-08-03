@@ -42,6 +42,7 @@ DBGuardian 在同一个 `DBGuardian-Spring-Boot-Starter` 仓库中提供两个�
 参考 `DBGuardian-doc/doc/测试项目规划.md`，当前已完成的组合如下：
 
 - `Java 8 + Spring Boot 2.7 + MyBatis-Plus`
+- `Java 8 + Spring Boot 2.7 + MyBatis-Plus + PostgreSQL`
 - `Java 11 + Spring Boot 2.7 + MyBatis-Plus`
 - `Java 17 + Spring Boot 3.0 + MyBatis-Plus`
 - `Java 17 + Spring Boot 3.1 + MyBatis-Plus`
