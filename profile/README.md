@@ -14,12 +14,12 @@ DBGuardian 是一套面向 Spring Boot 应用的数据库高可用解决方案�
 
 ## 项目简介
 
-DBGuardian 目前提供两个 Starter 版本，分别面向 Spring Boot 2 与 Spring Boot 3 场景：
+DBGuardian 在同一个 `DBGuardian-Spring-Boot-Starter` 仓库中提供两个模块，分别面向 Spring Boot 2 与 Spring Boot 3 场景：
 
-- `DBGuardian-Spring-Boot-Starter`：适用于 Spring Boot 2.7.x
-- `DBGuardian-Spring-Boot3-Starter`：适用于 Spring Boot 3.0.x
+- `dbguardian-boot2-starter`：适用于 Spring Boot 2.7.x
+- `dbguardian-boot3-starter`：适用于 Spring Boot 3.x
 
-两者都提供相同的核心能力，只是适配的 Spring Boot 版本不同。你可以根据项目技术栈选择对应版本接入。
+两个模块提供相同的核心能力，仅适配的 Spring Boot 版本不同。请根据项目技术栈选择对应模块接入。
 
 ## 核心能力
 
@@ -52,9 +52,9 @@ DBGuardian 目前提供两个 Starter 版本，分别面向 Spring Boot 2 与 Sp
 
 ### 版本参考
 
-- **Spring Boot 2.7.x**：对应 `DBGuardian-Spring-Boot-Starter`
-- **Spring Boot 3.0.x**：对应 `DBGuardian-Spring-Boot3-Starter`
-- 其他 Spring Boot 3.x 组合以测试项目规划中的矩阵为准
+- **Spring Boot 2.7.x**：使用仓库内的 `dbguardian-boot2-starter`
+- **Spring Boot 3.x**：使用仓库内的 `dbguardian-boot3-starter`
+- 具体 Spring Boot 3.x 兼容性以测试项目规划中的矩阵为准
 
 ## 适用场景
 
@@ -208,10 +208,9 @@ public class UserService {
 - MySQL 5.7+ / 8.0+
 - Redis 6.x+（可选，用于分布式协调）
 
-## 相关仓库
+## 仓库
 
-- [DBGuardian Spring Boot Starter](https://github.com/DBGuardian/DBGuardian-Spring-Boot-Starter)
-- [DBGuardian Spring Boot 3 Starter](https://github.com/DBGuardian/DBGuardian-Spring-Boot3-Starter)
+[DBGuardian Spring Boot Starter](https://github.com/DBGuardian/DBGuardian-Spring-Boot-Starter) 同时包含 Spring Boot 2 的 `dbguardian-boot2-starter` 和 Spring Boot 3 的 `dbguardian-boot3-starter` 模块。
 
 ## 贡献与支持
 
