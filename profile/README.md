@@ -36,22 +36,27 @@ DBGuardian 在同一个 `DBGuardian-Spring-Boot-Starter` 仓库中提供两个�
 
 - **MyBatis-Plus**：已支持
 - **MyBatis**：已支持
+- **JPA / Hibernate**：已支持
 
 ### 已验证版本组合
 
 参考 `DBGuardian-doc/doc/测试项目规划.md`，当前已完成的组合如下：
 
 - `Java 8 + Spring Boot 2.7 + MyBatis-Plus`
+- `Java 8 + Spring Boot 2.7 + MyBatis`
 - `Java 8 + Spring Boot 2.7 + MyBatis-Plus + PostgreSQL`
 - `Java 8 + Spring Boot 2.7 + MyBatis + PostgreSQL`
+- `Java 8 + Spring Boot 2.7 + JPA / Hibernate`
+- `Java 8 + Spring Boot 2.7 + JPA / Hibernate + PostgreSQL`
 - `Java 11 + Spring Boot 2.7 + MyBatis-Plus`
 - `Java 17 + Spring Boot 3.0 + MyBatis-Plus`
 - `Java 17 + Spring Boot 3.1 + MyBatis-Plus`
+- `Java 17 + Spring Boot 3.1 + JPA / Hibernate`
 - `Java 17 + Spring Boot 3.2 + MyBatis-Plus`
-- `Java 17 + Spring Boot 3.2 + MyBatis-Plus + PostgreSQL`
-- `Java 8 + Spring Boot 2.7 + MyBatis`
 - `Java 17 + Spring Boot 3.2 + MyBatis`
+- `Java 17 + Spring Boot 3.2 + MyBatis-Plus + PostgreSQL`
 - `Java 17 + Spring Boot 3.2 + MyBatis + PostgreSQL`
+- `Java 17 + Spring Boot 3.2 + JPA / Hibernate + PostgreSQL`
 - `Java 21 + Spring Boot 3.3 + MyBatis-Plus`
 
 ### 版本参考
