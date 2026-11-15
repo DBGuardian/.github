@@ -50,12 +50,15 @@ DBGuardian 在同一个 `DBGuardian-Spring-Boot-Starter` 仓库中提供两个�
 - `Java 8 + Spring Boot 2.7 + JPA / Hibernate + MySQL`
 - `Java 8 + Spring Boot 2.7 + JPA / Hibernate + PostgreSQL`
 - `Java 8 + Spring Boot 2.7 + Spring JDBC + MySQL`
+- `Java 8 + Spring Boot 2.7 + Spring JDBC + PostgreSQL`
 - `Java 11 + Spring Boot 2.7 + MyBatis-Plus + MySQL`
 - `Java 11 + Spring Boot 2.7 + Spring JDBC + MySQL`
+- `Java 11 + Spring Boot 2.7 + Spring JDBC + PostgreSQL`
 - `Java 17 + Spring Boot 3.0 + MyBatis-Plus + MySQL`
 - `Java 17 + Spring Boot 3.1 + MyBatis-Plus + MySQL`
 - `Java 17 + Spring Boot 3.1 + JPA / Hibernate + MySQL`
 - `Java 17 + Spring Boot 3.1 + Spring JDBC + MySQL`
+- `Java 17 + Spring Boot 3.1 + Spring JDBC + PostgreSQL`
 - `Java 17 + Spring Boot 3.2 + MyBatis-Plus + MySQL`
 - `Java 17 + Spring Boot 3.2 + MyBatis + MySQL`
 - `Java 17 + Spring Boot 3.2 + MyBatis-Plus + PostgreSQL`
@@ -63,6 +66,7 @@ DBGuardian 在同一个 `DBGuardian-Spring-Boot-Starter` 仓库中提供两个�
 - `Java 17 + Spring Boot 3.2 + JPA / Hibernate + PostgreSQL`
 - `Java 21 + Spring Boot 3.3 + MyBatis-Plus + MySQL`
 - `Java 21 + Spring Boot 3.3 + Spring JDBC + MySQL`
+- `Java 21 + Spring Boot 3.3 + Spring JDBC + PostgreSQL`
 
 ### 版本参考
 
