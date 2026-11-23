@@ -19,7 +19,7 @@ DBGuardian 在同一个 `DBGuardian-Spring-Boot-Starter` 仓库中提供两个�
 - `dbguardian-boot2-starter`：适用于 Spring Boot 2.7.x
 - `dbguardian-boot3-starter`：适用于 Spring Boot 3.x
 
-两个模块提供相同的核心能力，仅适配的 Spring Boot 版本不同。请根据项目技术栈选择对应模块接入。
+两个模块提供相同的核心能力，均支持 MySQL、PostgreSQL 和 MariaDB。先按 Spring Boot 版本选择 Starter，再按数据库选择方言和 JDBC 驱动。
 
 ## 核心能力
 
@@ -41,30 +41,45 @@ DBGuardian 在同一个 `DBGuardian-Spring-Boot-Starter` 仓库中提供两个�
 
 ### 已验证版本组合
 
-参考 `DBGuardian-doc/doc/测试项目规划.md`，当前已完成的组合如下：
+以下列出[测试项目规划](DBGuardian-doc/doc/测试项目规划.md#按-java-版本)中标为「已完成」的组合，按 Java 版本排列：
 
-- `Java 8 + Spring Boot 2.7 + MyBatis-Plus + MySQL`
-- `Java 8 + Spring Boot 2.7 + MyBatis + MySQL`
-- `Java 8 + Spring Boot 2.7 + MyBatis-Plus + PostgreSQL`
-- `Java 8 + Spring Boot 2.7 + MyBatis + PostgreSQL`
+- `Java 8 + Spring Boot 2.7 + JPA / Hibernate + MariaDB`
 - `Java 8 + Spring Boot 2.7 + JPA / Hibernate + MySQL`
 - `Java 8 + Spring Boot 2.7 + JPA / Hibernate + PostgreSQL`
+- `Java 8 + Spring Boot 2.7 + MyBatis + MariaDB`
+- `Java 8 + Spring Boot 2.7 + MyBatis + MySQL`
+- `Java 8 + Spring Boot 2.7 + MyBatis + PostgreSQL`
+- `Java 8 + Spring Boot 2.7 + MyBatis-Plus + MariaDB`
+- `Java 8 + Spring Boot 2.7 + MyBatis-Plus + MySQL`
+- `Java 8 + Spring Boot 2.7 + MyBatis-Plus + PostgreSQL`
+- `Java 8 + Spring Boot 2.7 + Spring JDBC + MariaDB`
 - `Java 8 + Spring Boot 2.7 + Spring JDBC + MySQL`
 - `Java 8 + Spring Boot 2.7 + Spring JDBC + PostgreSQL`
+- `Java 11 + Spring Boot 2.7 + MyBatis-Plus + MariaDB`
 - `Java 11 + Spring Boot 2.7 + MyBatis-Plus + MySQL`
+- `Java 11 + Spring Boot 2.7 + Spring JDBC + MariaDB`
 - `Java 11 + Spring Boot 2.7 + Spring JDBC + MySQL`
 - `Java 11 + Spring Boot 2.7 + Spring JDBC + PostgreSQL`
+- `Java 17 + Spring Boot 3.0 + MyBatis-Plus + MariaDB`
 - `Java 17 + Spring Boot 3.0 + MyBatis-Plus + MySQL`
-- `Java 17 + Spring Boot 3.1 + MyBatis-Plus + MySQL`
+- `Java 17 + Spring Boot 3.1 + JPA / Hibernate + MariaDB`
 - `Java 17 + Spring Boot 3.1 + JPA / Hibernate + MySQL`
+- `Java 17 + Spring Boot 3.1 + MyBatis-Plus + MariaDB`
+- `Java 17 + Spring Boot 3.1 + MyBatis-Plus + MySQL`
+- `Java 17 + Spring Boot 3.1 + Spring JDBC + MariaDB`
 - `Java 17 + Spring Boot 3.1 + Spring JDBC + MySQL`
 - `Java 17 + Spring Boot 3.1 + Spring JDBC + PostgreSQL`
-- `Java 17 + Spring Boot 3.2 + MyBatis-Plus + MySQL`
-- `Java 17 + Spring Boot 3.2 + MyBatis + MySQL`
-- `Java 17 + Spring Boot 3.2 + MyBatis-Plus + PostgreSQL`
-- `Java 17 + Spring Boot 3.2 + MyBatis + PostgreSQL`
+- `Java 17 + Spring Boot 3.2 + JPA / Hibernate + MariaDB`
 - `Java 17 + Spring Boot 3.2 + JPA / Hibernate + PostgreSQL`
+- `Java 17 + Spring Boot 3.2 + MyBatis + MariaDB`
+- `Java 17 + Spring Boot 3.2 + MyBatis + MySQL`
+- `Java 17 + Spring Boot 3.2 + MyBatis + PostgreSQL`
+- `Java 17 + Spring Boot 3.2 + MyBatis-Plus + MariaDB`
+- `Java 17 + Spring Boot 3.2 + MyBatis-Plus + MySQL`
+- `Java 17 + Spring Boot 3.2 + MyBatis-Plus + PostgreSQL`
+- `Java 21 + Spring Boot 3.3 + MyBatis-Plus + MariaDB`
 - `Java 21 + Spring Boot 3.3 + MyBatis-Plus + MySQL`
+- `Java 21 + Spring Boot 3.3 + Spring JDBC + MariaDB`
 - `Java 21 + Spring Boot 3.3 + Spring JDBC + MySQL`
 - `Java 21 + Spring Boot 3.3 + Spring JDBC + PostgreSQL`
 
@@ -105,82 +120,162 @@ DBGuardian 在同一个 `DBGuardian-Spring-Boot-Starter` 仓库中提供两个�
 </dependency>
 ```
 
-### 基础配置
+### 数据库方言 `pom.xml` 配置示例
 
-#### Spring Boot 2.x
+按 Spring Boot 版本选择一个 Starter，再按数据库从下方选择一组「方言 + JDBC 驱动」依赖，一起放入应用 `pom.xml` 的 `<dependencies>` 中。方言与 Starter 使用相同版本。若 Spring Boot 未管理示例所用坐标的驱动版本（例如较早的 Spring Boot 2.7 小版本可能不管理 `com.mysql:mysql-connector-j`），请为该驱动依赖显式指定兼容的 `<version>`。
+
+**MySQL**
+
+```xml
+<dependency>
+    <groupId>io.dbguardian</groupId>
+    <artifactId>dbguardian-dialect-mysql</artifactId>
+    <version>1.0.0</version>
+</dependency>
+<dependency>
+    <groupId>com.mysql</groupId>
+    <artifactId>mysql-connector-j</artifactId>
+    <scope>runtime</scope>
+</dependency>
+```
+
+**PostgreSQL**
+
+```xml
+<dependency>
+    <groupId>io.dbguardian</groupId>
+    <artifactId>dbguardian-dialect-postgresql</artifactId>
+    <version>1.0.0</version>
+</dependency>
+<dependency>
+    <groupId>org.postgresql</groupId>
+    <artifactId>postgresql</artifactId>
+    <scope>runtime</scope>
+</dependency>
+```
+
+**MariaDB**
+
+```xml
+<dependency>
+    <groupId>io.dbguardian</groupId>
+    <artifactId>dbguardian-dialect-mariadb</artifactId>
+    <version>1.0.0</version>
+</dependency>
+<dependency>
+    <groupId>org.mariadb.jdbc</groupId>
+    <artifactId>mariadb-java-client</artifactId>
+    <scope>runtime</scope>
+</dependency>
+```
+
+### 按数据库配置
+
+选择下面的一份配置写入 `application.yml`，适用于 Spring Boot 2.7 和 3.x。先在数据库侧建立复制，再替换示例中的节点地址和库名，确保两个 JDBC URL 分别指向不同节点。启动前设置 `DBGUARDIAN_DB_USERNAME`、`DBGUARDIAN_DB_PASSWORD`、`DBGUARDIAN_REPLICATION_USER` 和 `DBGUARDIAN_REPLICATION_PASSWORD`，分别用于数据源连接和复制，避免将真实凭据写入配置文件。
+
+#### MySQL 配置示例
 
 ```yaml
 spring:
-  application:
-    name: your-app-name
-
-  main:
-    allow-circular-references: true
-
   datasource:
-    allow-degraded-startup: true
-
     master:
-      url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
-      username: root
-      password: password
+      url: jdbc:mysql://mysql-primary:3306/appdb
       driver-class-name: com.mysql.cj.jdbc.Driver
-
+      username: ${DBGUARDIAN_DB_USERNAME}
+      password: ${DBGUARDIAN_DB_PASSWORD}
     slave:
-      url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
-      username: root
-      password: password
+      url: jdbc:mysql://mysql-replica:3306/appdb
       driver-class-name: com.mysql.cj.jdbc.Driver
-
+      username: ${DBGUARDIAN_DB_USERNAME}
+      password: ${DBGUARDIAN_DB_PASSWORD}
     replication:
-      master-host: localhost
-      master-port: 3306
-      master-user: repl
-      master-password: repl_password
-      auto-reconnect: true
-
-  redis:
-    host: localhost
-    port: 6379
+      master-user: ${DBGUARDIAN_REPLICATION_USER}
+      master-password: ${DBGUARDIAN_REPLICATION_PASSWORD}
+    allow-degraded-startup: true
 ```
 
-#### Spring Boot 3.x
+查询优先走健康从库，写入走当前主库。`allow-degraded-startup` 允许数据库暂不可用时降级启动应用；该选项也适用于下面两种数据库。
+
+#### PostgreSQL 配置示例
+
+以下以 PostgreSQL 16 的 Linux 路径为例，假定应用能在待恢复的原主 `pg-a` 上本地执行 `pg_rewind`，且执行账号有权限访问数据目录。请按安装方式调整路径，并将 `pg-rewind-recover.sh` 部署到待恢复节点。
 
 ```yaml
 spring:
-  application:
-    name: your-app-name
-
-  main:
-    allow-circular-references: true
-
   datasource:
-    allow-degraded-startup: true
-
     master:
-      url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
-      username: root
-      password: password
-      driver-class-name: com.mysql.cj.jdbc.Driver
-
+      url: jdbc:postgresql://pg-a:5432/appdb
+      driver-class-name: org.postgresql.Driver
+      username: ${DBGUARDIAN_DB_USERNAME}
+      password: ${DBGUARDIAN_DB_PASSWORD}
     slave:
-      url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
-      username: root
-      password: password
-      driver-class-name: com.mysql.cj.jdbc.Driver
-
+      url: jdbc:postgresql://pg-b:5432/appdb
+      driver-class-name: org.postgresql.Driver
+      username: ${DBGUARDIAN_DB_USERNAME}
+      password: ${DBGUARDIAN_DB_PASSWORD}
     replication:
-      master-host: localhost
-      master-port: 3306
-      master-user: repl
-      master-password: repl_password
-      auto-reconnect: true
-
-  data:
-    redis:
-      host: localhost
-      port: 6379
+      master-user: ${DBGUARDIAN_REPLICATION_USER}
+      master-password: ${DBGUARDIAN_REPLICATION_PASSWORD}
+    recovery:
+      enabled: true
+      auto-failback: true
+      postgresql:
+        enabled: true
+        keep-promoted-primary: true
+        data-directory: /var/lib/postgresql/16/main
+        config-file: /etc/postgresql/16/main/postgresql.conf
+        script-path: /opt/dbguardian/scripts/pg-rewind-recover.sh
+        pg-ctl-command: /usr/lib/postgresql/16/bin/pg_ctl
+        psql-command: /usr/lib/postgresql/16/bin/psql
+        pg-rewind-command: /usr/lib/postgresql/16/bin/pg_rewind
+        local-host: 127.0.0.1
+        local-port: 5432
+        local-database: postgres
+        startup-wait-seconds: 60
+        command-timeout-seconds: 900
+    allow-degraded-startup: true
 ```
+
+`keep-promoted-primary: true` 保留故障期间升主的节点承接写入，原主作为从库追赶，确认流复制正常后再承担读请求。应用与数据库分开部署时，在 `spring.datasource.recovery.postgresql` 下设置 `remote-execution-enabled: true` 和 `remote-executor-command`，让恢复脚本在待恢复节点上执行。
+
+#### MariaDB 配置示例
+
+适用于 MariaDB 10.11+ 单主单从环境。请预先配置 GTID（全局事务标识）复制，并为两个节点设置不同的 `server_id`。
+
+```yaml
+spring:
+  datasource:
+    master:
+      url: jdbc:mariadb://mariadb-primary:3306/appdb?connectTimeout=3000&socketTimeout=10000
+      driver-class-name: org.mariadb.jdbc.Driver
+      username: ${DBGUARDIAN_DB_USERNAME}
+      password: ${DBGUARDIAN_DB_PASSWORD}
+    slave:
+      url: jdbc:mariadb://mariadb-replica:3306/appdb?connectTimeout=3000&socketTimeout=10000
+      driver-class-name: org.mariadb.jdbc.Driver
+      username: ${DBGUARDIAN_DB_USERNAME}
+      password: ${DBGUARDIAN_DB_PASSWORD}
+    replication:
+      master-user: ${DBGUARDIAN_REPLICATION_USER}
+      master-password: ${DBGUARDIAN_REPLICATION_PASSWORD}
+    recovery:
+      enabled: true
+      auto-failback: true
+      catchup-timeout-seconds: 300
+      catchup-check-interval-seconds: 2
+    gtid-protection:
+      enabled: true
+      block-slave-reads-on-risk: true
+      max-allowed-lag-seconds: 5
+    allow-degraded-startup: true
+```
+
+`auto-failback: true` 表示原主追平后尝试切回原主。设为 `false` 时，故障期间升主的节点继续承接写入，原主追平且复制健康后可承担读请求。检测到复制风险时，`gtid-protection` 会阻止从库读取。
+
+#### 通用可选配置
+
+- **Redis**：多实例需要协调节点状态时，添加 `spring-boot-starter-data-redis`，并配置 `host`、`port`、`password`、`database` 和 `timeout`。Spring Boot 2.7 使用 `spring.redis`，Spring Boot 3.x 使用 `spring.data.redis`。单实例可不配置 Redis。
+- **连接池**：如需调整 HikariCP，可在 `spring.datasource.master.hikari` 和 `spring.datasource.slave.hikari` 下分别配置连接池大小和超时。
 
 ### 使用方式
 
@@ -223,7 +318,7 @@ public class UserService {
 
 - Spring Boot 2.7.x 或 Spring Boot 3.0.x / 3.1.x / 3.2.x / 3.3.x
 - Java 8 / 11 / 17 / 21，按测试矩阵选择对应版本
-- MySQL 5.7+ / 8.0+，或 PostgreSQL 15+
+- MySQL 5.7+ / 8.0+、PostgreSQL 15+ 或 MariaDB 10.11+
 - Redis 6.x+（可选，用于分布式协调）
 
 ## 仓库
